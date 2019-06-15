@@ -245,7 +245,7 @@
 	directionalLight.position.set(0, 0, 1).normalize();
 	scene.add(directionalLight);
 	readModel('Jeep');
-   readModel2('Jeep_1385');
+   //readModel2('Jeep_1385');
 	}
 
 
@@ -262,23 +262,20 @@
 	var onError = function(xhr) {};
 
 	var mtlLoader = new THREE.MTLLoader();
-	mtlLoader.setPath('models/car1/');
+	mtlLoader.setPath('https://github.com/leooooii/W3D/blob/master/hw5/models/car1/');
 	mtlLoader.load(modelName+'.mtl', function(materials) {
 
 	materials.preload();
 
 	var objLoader = new THREE.OBJLoader();
 	objLoader.setMaterials(materials);
-	objLoader.setPath('models/car1/');
+	objLoader.setPath('https://github.com/leooooii/W3D/blob/master/hw5/models/car1/');
 	objLoader.load(modelName+'.obj', function(object) {
 
 	theObject =  unitize (object, targetSize);
 	//theObject.add ( new THREE.BoxHelper (theObject) )
 	theObject.name = 'OBJ'
-	//scene.add (theObject);
-    models.push(theObject);
-	scene.add(models[0]);
-	scene.remove(models[0]);
+	scene.add (theObject);
 	}, onProgress, onError);
 
 	});
@@ -312,10 +309,6 @@
 	//theObject.add ( new THREE.BoxHelper (theObject) )
 	theObject2.name = 'OBJ'
 	//scene.add (theObject);
-    models.push(theObject2);
-	theObject2.position.set(0,2,0);
-	scene.add(models[1]);
-	scene.remove(models[1]);
 	}, onProgress, onError);
 
 	});
